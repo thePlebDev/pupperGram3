@@ -1,11 +1,14 @@
-import React from 'react';
+import React,{useState} from 'react';
 import styled from 'styled-components'
 
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import Notification from '../../Notification'
+import Success from '../../Notification/success'
 
 
 const Container = styled.div`
+    position:relative;
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -32,14 +35,25 @@ const ImageFooter = styled.div`
 
 
 const ImageContainer = ()=>{
+    const [show,setShow] = useState(false)
+    const [status,setStatus] = useState('fail')
+    const [message,setMessage] = useState("")
+
+    const handleLike =()=>{
+        setShow(true)
+        setStatus('success')
+        setMessage("Post Liked")
+    }
+
 
     return(
         <Container>
+            <Notification status={status} text={message} show={show} setShow={setShow}/>
             <Image alt="doggy" src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1334&q=80" />
             <ImageFooter>
                 <LocationOnIcon style={{color:"#845ec2",fontSize:"30px"}}/>
                 <div>Input</div>
-                <FavoriteBorderIcon style={{color:"#845ec2",fontSize:"30px"}}/>
+                <FavoriteBorderIcon style={{color:"#845ec2",fontSize:"30px"}} onClick={()=>{handleLike()}}/>
             </ImageFooter>  
         </Container>
     )
