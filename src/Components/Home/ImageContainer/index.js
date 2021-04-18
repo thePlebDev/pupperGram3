@@ -3,8 +3,10 @@ import styled from 'styled-components'
 
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+
+
 import Notification from '../../Notification'
-import Success from '../../Notification/success'
+
 
 
 const Container = styled.div`
@@ -53,7 +55,7 @@ const ImageContainer = ()=>{
             <ImageFooter>
                 <LocationOnIcon style={{color:"#845ec2",fontSize:"30px"}}/>
                 <div>Input</div>
-                <FavoriteBorderIcon style={{color:"#845ec2",fontSize:"30px"}} onClick={()=>{handleLike()}}/>
+                <FavoriteBorderIcon style={{color:"#845ec2",fontSize:"30px",cursor:"pointer"}} onClick={()=>{handleLike()}}/>
             </ImageFooter>  
         </Container>
     )

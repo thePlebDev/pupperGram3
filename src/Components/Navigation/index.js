@@ -1,9 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom'
+import {connect} from 'react-redux'
 
 import PetsIcon from '@material-ui/icons/Pets';
 import CameraAltIcon from '@material-ui/icons/CameraAlt';
+
+import showModalAC from '../../Redux/ActionCreators/ShowModalAC'
+
 
 
 const Container = styled.nav`
@@ -62,13 +66,13 @@ const TitleContainer = styled.div`
 
 
 
-const Navigation =({setShow})=>{
+const Navigation =({setShow,showModalAC})=>{
 
     return(
         <Container>
             <TitleContainer>
                 <CameraAltIcon style={{fontSize:'30px',cursor:"pointer"}}/>
-                <Title>PupperGram</Title>
+                <Link to="/"><Title>PupperGram</Title></Link>
             </TitleContainer>
             
             <NavContainer>
@@ -76,8 +80,7 @@ const Navigation =({setShow})=>{
                     <PetsIcon onClick={()=>{setShow(true)}} style={{fontSize:'30px',cursor:"pointer"}}/>    
                 </IconContainer>
                 <LargeNavigation>
-                    <Link to="/"><Links>Home</Links></Link>
-                    <Link to='/login'><Links>Login</Links></Link>
+                    <Links onClick={()=>{showModalAC()}}>Login</Links>
                     <Link to="/map"><Links>Map</Links></Link>
                     <Link to="/profile"><Links>Profile</Links></Link>
                 </LargeNavigation>
@@ -87,5 +90,11 @@ const Navigation =({setShow})=>{
     )
 }
 
+const mapDispatchToProps = {
+    showModalAC:showModalAC.showModalLogin
+}
 
-export default Navigation
+const ConnectedNavigation = connect(null,mapDispatchToProps)(Navigation)
+
+
+export default ConnectedNavigation

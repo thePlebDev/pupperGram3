@@ -7,6 +7,7 @@ import { Switch, Route } from 'react-router-dom';
 import Home from '../Home'
 import Navigation from '../Navigation'
 import MobileNavigation from '../Navigation/MobileNavigation'
+import Modal from '../Modal'
 
 
 
@@ -15,6 +16,7 @@ const App =()=>{
 
     return(
         <div>
+            <Modal/>
             <Navigation setShow={setShow}/>
             <MobileNavigation show={show} setShow={setShow}/>
             <Switch>
