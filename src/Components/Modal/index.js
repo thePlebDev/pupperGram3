@@ -1,10 +1,13 @@
-import React from 'react';
+import React,{useRef} from 'react';
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 
 import CloseIcon from '@material-ui/icons/Close';
 
+
 import modalAC from '../../Redux/ActionCreators/ShowModalAC'
+import useClickDetectionHook from '../../Hooks/useClickDetectionHook'
+import ModalStates from './modalStates'
 
 
 const Container = styled.div`
@@ -40,23 +43,31 @@ const IconContainer = styled.div`
     postion:absolute;
     `
 
-const Modal = ({showModal,hideModal})=>{
+
+
+const Modal = ({showModal,hideModal,modalStatus})=>{
+    const node = useRef();
+
+    useClickDetectionHook(node,hideModal)
 
     return(
-        <Container state={showModal}>
-            <SubContainer>
+        <Container state={showModal} >
+            <SubContainer ref={node}>
                 <IconContainer onClick={()=>{hideModal()}}>
                     <CloseIcon style={{fontSize:'40px',cursor:'pointer'}}/>
                 </IconContainer>
+                {ModalStates[modalStatus]}
             </SubContainer>   
         </Container>
     )
 }
 
 const mapStateToProps = (state) =>{
+    console.log()
     
     return{
-        showModal:state.showModal.showModal
+        showModal:state.showModal.showModal,
+        modalStatus:state.showModal.modalStatus,
     }
 }
 
