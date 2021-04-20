@@ -4,7 +4,10 @@ const types ={
     showModal:"SHOWMODAL",
     showModalLogin:"SHOWMODALLOGIN",
     showModalSignup:"SHOWMODALSIGNUP",
-    hideModal:"HIDEMODAL"
+    showModalPost:"SHOWMODALPOST",
+    hideModal:"HIDEMODAL",
+    showMapData:"SHOWMAPDATA",
+
 }
 
 

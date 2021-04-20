@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
+import { connect } from 'react-redux';
 
 import ImageContainer from './ImageContainer'
 
@@ -11,15 +12,27 @@ const Container = styled.div`
 `
 
 
-const Home =()=>{
+const Home =({data})=>{
 
     return(
         <Container>
-            <ImageContainer/>
-            <ImageContainer/>
-            <ImageContainer/>
+            {
+                data.map((item,index)=>{
+                    return <ImageContainer key={index} img={item.img} latLong={item.latLong} desc={item.description}/>
+                })
+            }
+            
+            
         </Container>
     )
 }
 
-export default Home
+const mapStateToProps =(state)=>{
+    return{
+        data:state.mapReducer
+    }
+}
+
+const ConnectedHome = connect(mapStateToProps)(Home)
+
+export default ConnectedHome

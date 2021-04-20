@@ -13,6 +13,11 @@ const modalActionCreator =(()=>{
                 type:types.showModalSignup
             }
         },
+        showModalPost(action){
+            return{
+                type:types.showModalPost
+            }
+        },
         hideModal(action){
         
             return{

@@ -8,6 +8,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import modalAC from '../../Redux/ActionCreators/ShowModalAC'
 import useClickDetectionHook from '../../Hooks/useClickDetectionHook'
 import ModalStates from './modalStates'
+import Post from '../Post'
 
 
 const Container = styled.div`

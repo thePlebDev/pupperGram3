@@ -14,6 +14,9 @@ const showModalReducer =(state,action)=>{
         case types.showModalSignup:
             return {...state,showModal:true,modalStatus:"signup"}
         
+        case types.showModalPost:
+            return {...state,showModal:true,modalStatus:"post"}
+        
         case types.hideModal:
             return {...state,showModal:false}
 

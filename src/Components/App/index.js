@@ -8,6 +8,7 @@ import Home from '../Home'
 import Navigation from '../Navigation'
 import MobileNavigation from '../Navigation/MobileNavigation'
 import Modal from '../Modal'
+import Map from '../Map'
 
 
 
@@ -21,6 +22,7 @@ const App =()=>{
             <MobileNavigation show={show} setShow={setShow}/>
             <Switch>
                  <Route path="/" component={Home} exact />
+                 <Route path="/map" component={Map} exact />
             </Switch>
         </div>
     )

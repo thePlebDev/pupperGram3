@@ -1,11 +1,13 @@
 import Login from '../Login'
-import Signup from '../Signup'
+import Signup from '../Signup';
+import Post from '../Post'
 
 
 
 const ModalStates = {
     login:<Login/>,
-    signup:<Signup/>
+    signup:<Signup/>,
+    post:<Post/>
 }
 
 

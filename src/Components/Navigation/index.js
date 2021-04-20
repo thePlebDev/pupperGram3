@@ -50,6 +50,7 @@ const Links = styled.li`
     font-size:20px;
     font-weight:600;
     cursor:pointer;
+    color:${({theme})=>`1px solid ${theme.colors.main}`};
 
 `
 
@@ -66,12 +67,12 @@ const TitleContainer = styled.div`
 
 
 
-const Navigation =({setShow,showModalAC})=>{
+const Navigation =({setShow,showModalAC,showModalPost})=>{
 
     return(
         <Container>
             <TitleContainer>
-                <CameraAltIcon style={{fontSize:'30px',cursor:"pointer"}}/>
+                <CameraAltIcon style={{fontSize:'30px',cursor:"pointer"}} onClick={()=>{showModalPost()}}/>
                 <Link to="/"><Title>PupperGram</Title></Link>
             </TitleContainer>
             
@@ -91,7 +92,8 @@ const Navigation =({setShow,showModalAC})=>{
 }
 
 const mapDispatchToProps = {
-    showModalAC:showModalAC.showModalLogin
+    showModalAC:showModalAC.showModalLogin,
+    showModalPost:showModalAC.showModalPost,
 }
 
 const ConnectedNavigation = connect(null,mapDispatchToProps)(Navigation)
